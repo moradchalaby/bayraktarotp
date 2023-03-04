@@ -1,0 +1,34 @@
+AKMESCİD ÖĞRENCİ TAKİP PROGRAMI
+
+
+//////////////YAPILANLAR/////////////
+
+1- login
+2-öğrenci kayıt
+3-öğrenci düzenle
+4-öğrenci sil
+5-öğrenci listele
+6-personel kayıt
+7-personel düzenle
+8-personel sil
+9-personel listele
+10-hoca listele
+11-birim sorumlusu listele
+
+
+
+
+
+//////////////YAPILACAKLAR/////////////
+
+6-birimim
+5-sınıfım
+1-izinliler listesi
+2-izin ver sistemi
+3-yatakhane listesi
+4-yatakhane düzenle
+7-ana sayfa (ders verenler,sayı bilgi, izinliler, )
+8-hoca izin takip
+9-///HAFIZLIK/// takip
+
+

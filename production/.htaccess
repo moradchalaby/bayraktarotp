@@ -1,0 +1,56 @@
+Options +FollowSymLinks
+
+RewriteEngine on
+
+#RewriteCond %{SERVER_PORT} 80 
+#RewriteRule ^(.*)$ http://www.site_adi.com/$1 [R,L]
+
+#RewriteCond %{HTTP_HOST} ^192.168.1.182. [NC]
+#RewriteRule ^(.*)$ http://www.site_adi.com/$1 [L,R=301,NC]
+
+
+#denememeee
+
+
+
+#Seo url oluşturma
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
+RewriteRule ^ %1 [R=301,L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*?)/?$ $1.php [NC,L]
+RewriteRule ^([0-9a-zA-Z-_]+)\/?$ $1.php [NC]  
+
+
+
+#RewriteRule ^production/(.*)?$ $1
+
+#RewriteRule ^(.*).html$ $1.php [L,NC]
+
+
+#RewriteRule ^(.*)$ $1.php
+#404 hata sayfası yönlendirme kodu
+#ErrorDocument 404 http://www.joyakademi.com
+
+
+
+DirectoryIndex aksilik.php
+
+#RewriteRule ^ogrenci-detay-([0-9]+)$  ogrenci-detay.php$1 [L,QSA]
+#RewriteRule ^kullanici-duzenle-([0-9]+)$  kullanici-duzenle.php?kullanici_id=$1 [L,QSA]
+#RewriteRule ^ihtisashoca-([0-9]+)-([0-9]+)$  ihtisashoca.php?ders=$1&sinif=$2 [L,QSA]
+
+
+
+
+
+
+
+
+
+
+
+
+#RewriteRule ^sayfa-([0-9a-zA-Z-_]+)  menu-detay.php?sef=$1 [L,QSA]
+#RewriteRule ^kategori-([0-9a-zA-Z-_]+)  kategoriler.php?sef=$1 [L,QSA]
+#RewriteRule ^urun-([0-9a-zA-Z-_]+)-([0-9]+)$  urun-detay.php?sef=$1&urun_id=$2 [L,QSA]
