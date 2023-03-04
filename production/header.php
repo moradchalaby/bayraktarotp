@@ -9,12 +9,12 @@
 
     //BELİRLİ VERİYİ SEÇME İŞLEMİ
     //AYARLAR 
-    $ayarsor = $db->prepare("SELECT * from ayar where ayar_id=:id");
+/*     $ayarsor = $db->prepare("SELECT * from ayar where ayar_id=:id");
     $ayarsor->execute(array(
         'id' => 0
     ));
 
-    $ayarcek = $ayarsor->fetch(PDO::FETCH_ASSOC);
+    $ayarcek = $ayarsor->fetch(PDO::FETCH_ASSOC); */
 
 
 

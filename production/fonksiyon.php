@@ -1,6 +1,8 @@
 <?php
 ob_start();
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 //Bu fonksiyon türkçe karakterleri bozmadan ingilizve karakterlere dönüştürüyor
 
 function seo($str, $options = array())
