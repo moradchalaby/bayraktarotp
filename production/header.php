@@ -9,7 +9,7 @@
 
     //BELİRLİ VERİYİ SEÇME İŞLEMİ
     //AYARLAR 
-/*     $ayarsor = $db->prepare("SELECT * from ayar where ayar_id=:id");
+    /*     $ayarsor = $db->prepare("SELECT * from ayar where ayar_id=:id");
     $ayarsor->execute(array(
         'id' => 0
     ));
@@ -182,6 +182,7 @@ if (!isset($_SESSION['kullanici_mail'])) {
                                          <li><a href="sinif-duzenle.php">Sınıflar</a></li>
                                          <li><a href="ogrencihfzlk.php">Öğrenci Hafızlık Lİstesi</a></li>
 
+
                                      </ul>
                                  </li>
 
@@ -196,6 +197,8 @@ if (!isset($_SESSION['kullanici_mail'])) {
                                      </ul>
 
                                  </li>
+                                 <li><a href="ogrnchfzlk.php"><i class="fa fa-car"></i>TEST!!!Öğrenci Hafızlık
+                                         Lİstesi</a></li>
                                  <li><a href="muhasebe.php"><i class="fa fa-calculator"></i> Muhasebe</a></li>
                                  <?php include 'derssayfalar.php' ?>
                                  <?php endif ?>
