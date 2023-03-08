@@ -742,8 +742,8 @@ if (isset($_POST['hdrmdegis'])) {
 
 	if ($update) {
 
-		$url = $_POST['url'];
-		header("Location:..$url");
+		$url = $_SERVER['HTTP_REFERER'];
+		header("Location: " . $url);
 		exit;
 	} else {
 		header("Location:../production/index.php?durum=hdbasarisiz");
@@ -897,8 +897,8 @@ if (isset($_POST['ders'])) {
 
 	if ($insert and $raporup and $update) {
 
-		$url = $_POST['url'];
-		header("Location:..$url");
+		$url = $_SERVER['HTTP_REFERER'];
+		header("Location: " . $url);
 		exit;
 	} else {
 		exit;
@@ -933,8 +933,8 @@ if (isset($_POST['hfzlksil'])) {
 	));
 
 	if ($delete1 and $delete2) {
-		$url = $_POST['url'];
-		header("Location:..$url");
+		$url = $_SERVER['HTTP_REFERER'];
+		header("Location: " . $url);
 		exit;
 	} else {
 		exit;
