@@ -10,11 +10,7 @@ include 'header.php';
 
 
 
-$ogrencisor = $db->prepare("SELECT * FROM ogrenci where ogrenci_kytdrm=:kytdrm");
-$ogrencisor->execute(array(
 
-    'kytdrm' => 1
-));
 
 if (isset($_GET['tablo'])) {
 
@@ -124,47 +120,40 @@ setlocale(LC_TIME, "turkish");
 
             <div class="form-group">
 
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Başlangıç Tarihi<span
-                        class="required">*</span>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Başlangıç Tarihi<span class="required">*</span>
                 </label>
                 <div class="col-md-2 col-sm-3 col-xs-12">
-                    <input type="date" id="first-name" name="date2" value='<?php echo $_GET["date2"]; ?>'
-                        class="form-control col-md-7 col-xs-12">
+                    <input type="date" id="first-name" name="date2" value='<?php echo $_GET["date2"]; ?>' class="form-control col-md-7 col-xs-12">
 
                 </div>
-                <label class="control-label col-md-1 col-sm-1 col-xs-12" for="first-name">Bitiş Tarihi<span
-                        class="required">*</span>
+                <label class="control-label col-md-1 col-sm-1 col-xs-12" for="first-name">Bitiş Tarihi<span class="required">*</span>
                 </label>
                 <div class="col-md-2 col-sm-3 col-xs-12">
                     <input type="date" id="first-name" name="date1" value="<?php if (isset($_GET['date1'])) {
                                                                                 echo  $_GET['date1'];
                                                                             } else {
                                                                                 echo date("Y-m-d");
-                                                                            } ?>" required="required"
-                        class="form-control col-md-7 col-xs-12">
+                                                                            } ?>" required="required" class="form-control col-md-7 col-xs-12">
                 </div>
             </div>
 
 
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Sayfa<span
-                        class="required">*</span>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Sayfa<span class="required">*</span>
                 </label>
                 <div class="col-md-1 col-sm-2 col-xs-12">
                     <input type="text" id="first-name" name="sayfa" value="<?php if (isset($_GET['sayfa'])) {
                                                                                 echo  $_GET['sayfa'];
                                                                             } else {
                                                                                 echo "0";
-                                                                            } ?>" placeholder="Sayfa"
-                        class="form-control col-md-7 col-xs-12">
+                                                                            } ?>" placeholder="Sayfa" class="form-control col-md-7 col-xs-12">
                 </div>
 
 
 
 
 
-                <label class="control-label col-md-1 col-sm-1 col-xs-12" for="first-name">Sınıf<span
-                        class="required">*</span>
+                <label class="control-label col-md-1 col-sm-1 col-xs-12" for="first-name">Sınıf<span class="required">*</span>
                 </label>
                 <div class="col-md-1 col-sm-2 col-xs-12">
                     <?php
@@ -174,18 +163,18 @@ setlocale(LC_TIME, "turkish");
 
                     ?>
                     <style type="text/css">
-                    select {
+                        select {
 
-                        text-align: center;
-                        text-align-last: center;
-                        /* webkit*/
-                    }
+                            text-align: center;
+                            text-align-last: center;
+                            /* webkit*/
+                        }
 
-                    option {
-                        font-size: 20px;
-                        text-align-last: center;
-                        /* reset to left*/
-                    }
+                        option {
+                            font-size: 20px;
+                            text-align-last: center;
+                            /* reset to left*/
+                        }
                     </style>
                     <select class="select2_multiple form-control" name="sinif">
                         <option value="" selected>Tüm Sınıflar</option>
@@ -196,10 +185,10 @@ setlocale(LC_TIME, "turkish");
 
                         ?>
 
-                        <option value="<?php echo $sinifcek['sinif_id']; ?>" <?php if (isset($_GET['sinif']) and $_GET['sinif'] == $sinifcek['sinif_id']) {
+                            <option value="<?php echo $sinifcek['sinif_id']; ?>" <?php if (isset($_GET['sinif']) and $_GET['sinif'] == $sinifcek['sinif_id']) {
                                                                                         echo  'selected';
                                                                                     } ?>>
-                            <?php echo $sinifcek['sinif_ad']; ?></option>
+                                <?php echo $sinifcek['sinif_ad']; ?></option>
                         <?php } ?>
 
 
@@ -207,22 +196,19 @@ setlocale(LC_TIME, "turkish");
 
                 </div>
 
-                <label class="control-label col-md-1 col-sm-1 col-xs-12" for="first-name">Kota<span
-                        class="required">*</span>
+                <label class="control-label col-md-1 col-sm-1 col-xs-12" for="first-name">Kota<span class="required">*</span>
                 </label>
                 <div class="col-md-1 col-sm-1 col-xs-12">
                     <input type="text" id="first-name" name="kota" value="<?php if (isset($_GET['kota'])) {
                                                                                 echo  $_GET['kota'];
                                                                             } else {
                                                                                 echo "0";
-                                                                            } ?>" placeholder="Sınıf"
-                        class="form-control col-md-7 col-xs-12">
+                                                                            } ?>" placeholder="Sınıf" class="form-control col-md-7 col-xs-12">
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Hoca<span
-                        class="required">*</span>
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Hoca<span class="required">*</span>
                 </label>
                 <div class="col-md-5 col-sm-7 col-xs-12" style="text-align:center">
                     <?php
@@ -237,18 +223,18 @@ setlocale(LC_TIME, "turkish");
 
                     ?>
                     <style type="text/css">
-                    select {
+                        select {
 
-                        text-align: center;
-                        text-align-last: center;
-                        /* webkit*/
-                    }
+                            text-align: center;
+                            text-align-last: center;
+                            /* webkit*/
+                        }
 
-                    option {
-                        font-size: 20px;
-                        text-align-last: center;
-                        /* reset to left*/
-                    }
+                        option {
+                            font-size: 20px;
+                            text-align-last: center;
+                            /* reset to left*/
+                        }
                     </style>
                     <select class="select2_multiple form-control" name="hoca">
                         <option value="" selected>Tüm Hocalar</option>
@@ -259,8 +245,8 @@ setlocale(LC_TIME, "turkish");
 
                         ?>
 
-                        <option value="<?php echo $kullanicicek['kullanici_id']; ?>">
-                            <?php echo $kullanicicek['kullanici_adsoyad']; ?></option>
+                            <option value="<?php echo $kullanicicek['kullanici_id']; ?>">
+                                <?php echo $kullanicicek['kullanici_adsoyad']; ?></option>
                         <?php } ?>
 
 
@@ -307,9 +293,7 @@ setlocale(LC_TIME, "turkish");
 
                 <div id="ahmet" class="x_content col-xs-12">
 
-                    <table id="datatable-responsive"
-                        class="table table-striped jambo_table table-bordered dt-responsive nowrap" cellspacing="0"
-                        width="100%">
+                    <table id="datatable-responsive" class="table table-striped jambo_table table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                         <thead width="100%">
                             <tr>
                                 <th>Sıra</th>
@@ -327,7 +311,7 @@ setlocale(LC_TIME, "turkish");
                                     array_push($daterange, date('Y-m-d', strtotime("$b day", strtotime($date1))));
 
                                 ?>
-                                <th><?php echo date('d-m-Y', strtotime("$b day", strtotime($date1))); ?></th>
+                                    <th><?php echo date('d-m-Y', strtotime("$b day", strtotime($date1))); ?></th>
 
                                 <?php $b++;
                                 } ?>
@@ -345,20 +329,20 @@ setlocale(LC_TIME, "turkish");
                             while ($ogrencicek = $ogrencisor->fetch(PDO::FETCH_ASSOC)) {
 
                             ?>
-                            <tr>
-                                <td><?php echo $ogrencicek['id']; ?></td>
-                                <td><?php echo $ogrencicek['adsoyad']; ?></td>
-                                <td><?php echo $ogrencicek['hoca_adsoyad']; ?></td>
-                                <td><?php echo $ogrencicek['sinif']; ?></td>
-                                <td><?php echo $ogrencicek['durum']; ?></td>
+                                <tr>
+                                    <td><?php echo $ogrencicek['id']; ?></td>
+                                    <td><?php echo $ogrencicek['adsoyad']; ?></td>
+                                    <td><?php echo $ogrencicek['hoca_adsoyad']; ?></td>
+                                    <td><?php echo $ogrencicek['sinif']; ?></td>
+                                    <td><?php echo $ogrencicek['durum']; ?></td>
 
-                                <?php
+                                    <?php
                                     $topla = 0;
                                     foreach ($daterange as $date) {
                                     ?>
 
 
-                                <?php
+                                        <?php
                                         if ($ogrencicek['say'] > 0) {
 
 
@@ -393,19 +377,19 @@ setlocale(LC_TIME, "turkish");
                                         # code...
                                         ?>
 
-                                <?php }
+                                    <?php }
 
 
                                     ?>
-                                <td><?php echo $topla; ?></td>
+                                    <td><?php echo $topla; ?></td>
 
-                                <td><?php echo $ogrencicek['sonders']; ?></td>
-                                <?php $b = -$gun;
+                                    <td><?php echo $ogrencicek['sonders']; ?></td>
+                                    <?php $b = -$gun;
                                     $derslerim = [];
                                     foreach ($daterange as $date) { ?>
 
-                                <td>
-                                    <?php
+                                        <td>
+                                            <?php
                                             if ($ogrencicek['say'] > 0) {
 
 
@@ -446,9 +430,9 @@ setlocale(LC_TIME, "turkish");
                                             echo $ders;
                                             # code...
                                             ?>
-                                </td>
+                                        </td>
 
-                                <?php
+                                    <?php
 
                                     }
                                     /*    foreach ($derslerim as $key => $value) {
@@ -456,7 +440,7 @@ setlocale(LC_TIME, "turkish");
                                     } */
                                     ?>
 
-                            </tr>
+                                </tr>
 
                             <?php
                                 /* include 'modallar/derseklemodal.php';
