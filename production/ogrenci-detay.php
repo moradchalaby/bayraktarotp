@@ -11,7 +11,7 @@ $ogrencisor->execute(array(
 
 $ogrencicek = $ogrencisor->fetch(PDO::FETCH_ASSOC);
 
-$sondersimsor= $db->prepare("SELECT * from hafizlikdurum where ogrenci_id=:id");
+$sondersimsor = $db->prepare("SELECT * from hafizlikdurum where ogrenci_id=:id");
 $sondersimsor->execute(array(
     'id' => $_GET['ogrenci_id']
 ));
@@ -104,17 +104,17 @@ setlocale(LC_TIME, "turkish");
                                 <li class="gizle">
                                     <b>Doğum Tarihi:</b> <?php echo $ogrencicek['ogrenci_dt'] ?>
                                 </li>
-                        <li class="gizle">
+                                <li class="gizle">
                                     <b>Kayıt Tarihi:</b> <?php echo $ogrencicek['ogrenci_kytTrh'] ?>
                                 </li>
-                        <?php if ($ogrencicek['ogrenci_kytdrm'] == 0) {?>
-                                     <li class="gizle">
+                                <?php if ($ogrencicek['ogrenci_kytdrm'] == 0) { ?>
+                                <li class="gizle">
                                     <b>Mezun Tarihi:</b> <?php echo $ogrencicek['ogrenci_mznTrh'] ?>
                                 </li>
-                         
-                                    <?php  } ?>
 
-<li class="gizle">
+                                <?php  } ?>
+
+                                <li class="gizle">
                                     <b>Son Ders:</b> <?php echo $sondersimcek['hafizlik_son'] ?>
                                 </li>
                             </ul>
@@ -144,7 +144,7 @@ setlocale(LC_TIME, "turkish");
                                     </li>
                                     <?php if ($kullanicicek['kullanici_yetki'] == 5) : ?>
                                     <li role="presentation" class="gizle"><a href="#aidat" role="tab" id="profile-tab3"
-                                            data-toggle="tab" aria-expanded="false">Aidat</a>
+                                            data-toggle="tab" aria-expanded="true">Aidat</a>
                                     </li>
                                     <?php endif ?>
                                     <?php endif ?>
@@ -174,12 +174,9 @@ setlocale(LC_TIME, "turkish");
 
                                     </div>
                                     <?php include 'ogrenci-detayf/dty-hafizlik.php'; ?>
-                                    <?php include 'ogrenci-detayf/dty-ihtisasodev.php'; ?>
                                     <?php include 'ogrenci-detayf/dty-ogrencibilgi.php'; ?>
                                     <?php include 'ogrenci-detayf/dty-aidat.php'; ?>
 
-                                    <?php include 'ogrenci-detayf/dty-ihtisasimtihan.php'; ?>
-                                    <?php include 'ogrenci-detayf/dty-ihtisaskatilim.php'; ?>
                                 </div>
                             </div>
                         </div>

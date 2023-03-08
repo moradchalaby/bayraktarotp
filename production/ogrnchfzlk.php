@@ -70,7 +70,8 @@ sinif.sinif_ad as sinif,
                 GROUP_CONCAT(CASE WHEN hfzlkyni.ogrenci_id = ogrenci.ogrenci_id THEN hfzlkyni.hafizlik_trh ELSE NULL END
                      ORDER BY hfzlkyni.ogrenci_id ASC SEPARATOR ',') AS gunler,
                 GROUP_CONCAT(CASE WHEN ogrenci.ogrenci_id = hfzlkyni.ogrenci_id THEN hfzlkyni.hafizlik_id ELSE NULL END
-                     ORDER BY hfzlkyni.ogrenci_id ASC SEPARATOR ',') AS dersId  FROM ogrenci  
+                     ORDER BY hfzlkyni.ogrenci_id ASC SEPARATOR ',') AS dersId  FROM hfzlkyni  as hafiz
+                     LEFT JOIN ogrenci on ogrenci.ogrenci_id = hafiz.ogrenci_id
                      LEFT JOIN hafizlikdurum on ogrenci.ogrenci_id = hafizlikdurum.ogrenci_id
                      LEFT JOIN kullanici on ogrenci.kullanici_id = kullanici.kullanici_id
                      LEFT JOIN sinif on ogrenci.ogrenci_sinif = sinif.sinif_id

@@ -61,15 +61,17 @@
                             while ($currentDate <= $endDate) {
 
 
-                                $aidatdurumsor = $db->prepare("SELECT * from aidat where ogrenci_id=:ogrenci_id and aidat_ay=:aidat_ay");
+                                $aidatdurumsor = $db->prepare("SELECT aidat.*, kullanici.kullanici_id,kullanici.kullanici_adsoyad from aidat INNER JOIN kullanici on aidat.kullanici_id = kullanici.kullanici_id where aidat.ogrenci_id=:ogrenci_id and aidat.aidat_ay=:aidat_ay");
                                 $aidatdurumsor->execute(array(
 
                                     'ogrenci_id' => $ogrencicek['ogrenci_id'],
                                     'aidat_ay' => date('Y-m', $currentDate),
                                 ));
                                 $aidatdurumcek = $aidatdurumsor->fetch(PDO::FETCH_ASSOC);
+                                $varmi = $aidatdurumsor->rowcount();
+                              //  print_r($aidatdurumcek);
 
-                                $aidatkulsor = $db->prepare("SELECT * from kullanici where kullanici_id=:kullanici_id");
+                                /*  $aidatkulsor = $db->prepare("SELECT * from kullanici where kullanici_id=:kullanici_id");
                                 $aidatkulsor->execute(array(
 
                                     'kullanici_id' => $aidatdurumcek['kullanici_id'],
@@ -162,21 +164,14 @@
                             while ($currentDate <= $endDate) {
 
 
-                                $aidatdurumsor = $db->prepare("SELECT * from aidat where ogrenci_id=:ogrenci_id and aidat_ay=:aidat_ay");
+
+                                $aidatdurumsor = $db->prepare("SELECT aidat.*, kullanici.kullanici_id,kullanici.kullanici_adsoyad from aidat INNER JOIN kullanici on aidat.kullanici_id = kullanici.kullanici_id where aidat.ogrenci_id=:ogrenci_id and aidat.aidat_ay=:aidat_ay");
                                 $aidatdurumsor->execute(array(
 
                                     'ogrenci_id' => $ogrencicek['ogrenci_id'],
                                     'aidat_ay' => date('Y-m', $currentDate),
                                 ));
                                 $aidatdurumcek = $aidatdurumsor->fetch(PDO::FETCH_ASSOC);
-
-                                $aidatkulsor = $db->prepare("SELECT * from kullanici where kullanici_id=:kullanici_id");
-                                $aidatkulsor->execute(array(
-
-                                    'kullanici_id' => $aidatdurumcek['kullanici_id'],
-
-                                ));
-                                $aidatkulcek = $aidatkulsor->fetch(PDO::FETCH_ASSOC);
                                 $varmi = $aidatdurumsor->rowcount();
                                 /*   echo $varmi;
                                     echo '<br>';
@@ -267,7 +262,7 @@
                             while ($currentDate <= $endDate) {
 
 
-                                $aidatdurumsor = $db->prepare("SELECT * from aidat where ogrenci_id=:ogrenci_id and aidat_ay=:aidat_ay");
+                                $aidatdurumsor = $db->prepare("SELECT aidat.*, kullanici.kullanici_id,kullanici.kullanici_adsoyad from aidat INNER JOIN kullanici on aidat.kullanici_id = kullanici.kullanici_id where aidat.ogrenci_id=:ogrenci_id and aidat.aidat_ay=:aidat_ay");
                                 $aidatdurumsor->execute(array(
 
                                     'ogrenci_id' => $ogrencicek['ogrenci_id'],
@@ -275,13 +270,6 @@
                                 ));
                                 $aidatdurumcek = $aidatdurumsor->fetch(PDO::FETCH_ASSOC);
 
-                                $aidatkulsor = $db->prepare("SELECT * from kullanici where kullanici_id=:kullanici_id");
-                                $aidatkulsor->execute(array(
-
-                                    'kullanici_id' => $aidatdurumcek['kullanici_id'],
-
-                                ));
-                                $aidatkulcek = $aidatkulsor->fetch(PDO::FETCH_ASSOC);
                                 $varmi = $aidatdurumsor->rowcount();
                                 /*   echo $varmi;
                                     echo '<br>';

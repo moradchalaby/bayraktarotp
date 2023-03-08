@@ -9,12 +9,7 @@ include 'fonksiyon.php';
 
 //BELİRLİ VERİYİ SEÇME İŞLEMİ
 //AYARLAR 
-$ayarsor = $db->prepare("SELECT * from ayar where ayar_id=:id");
-$ayarsor->execute(array(
-    'id' => 0
-));
 
-$ayarcek = $ayarsor->fetch(PDO::FETCH_ASSOC);
 
 
 
@@ -50,7 +45,7 @@ $makbuzcek = $makbuzsor->fetch(PDO::FETCH_ASSOC);
 
 
 
-function sayiyiYaziyaCevir($sayi, $kurusbasamak = 2, $parabirimi, $parakurus, $diyez, $bb1, $bb2, $bb3)
+function sayiyiYaziyaCevir($sayi,  $parabirimi, $parakurus, $diyez, $bb1, $bb2, $bb3, $kurusbasamak = 2)
 {
     // kurusbasamak virgülden sonra gösterilecek basamak sayısı
     // parabirimi = TL gibi , parakurus = Kuruş gibi
@@ -287,8 +282,7 @@ function sayiyiYaziyaCevir($sayi, $kurusbasamak = 2, $parabirimi, $parakurus, $d
     <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
-    <link href="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/css/smart_wizard_all.min.css" rel="stylesheet"
-        type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.css" rel="stylesheet">
 
@@ -303,18 +297,18 @@ function sayiyiYaziyaCevir($sayi, $kurusbasamak = 2, $parabirimi, $parakurus, $d
     <!-- The following line applies the dark theme -->
     <link rel="stylesheet" href="css/colorPick.dark.theme.css">
     <style>
-    span {
-        font-style: oblique;
-        font-weight: bold;
-    }
-
-    @media print {
-
-        .no-print,
-        .no-print * {
-            display: none !important;
+        span {
+            font-style: oblique;
+            font-weight: bold;
         }
-    }
+
+        @media print {
+
+            .no-print,
+            .no-print * {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 
@@ -323,18 +317,14 @@ function sayiyiYaziyaCevir($sayi, $kurusbasamak = 2, $parabirimi, $parakurus, $d
 
 
 
-    <table id="datatable-responsive" class="table table-striped jambo_table table-bordered dt-responsive nowrap"
-        cellspacing="0" width="100%">
+    <table id="datatable-responsive" class="table table-striped jambo_table table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
 
         <tbody>
             <tr style="height: 18px;">
-                <td style="width: 27.9867%; height: 36px; text-align: center; border-collapse: collapse; border-style: inset;"
-                    colspan="2" rowspan="2">AZİZ BAYRAKTAR ORTA ÖĞRETİM <br> ERKEK ÖĞRENCİ YURDU <br><br> Tel no: 0216
+                <td style="width: 27.9867%; height: 36px; text-align: center; border-collapse: collapse; border-style: inset;" colspan="2" rowspan="2">AZİZ BAYRAKTAR ORTA ÖĞRETİM <br> ERKEK ÖĞRENCİ YURDU <br><br> Tel no: 0216
                     532 44 44</td>
-                <td style="width: 52.3137%; height: 18px;font-size: 30px; text-align: center; border-collapse: collapse; border-style: inset;"
-                    colspan="3" rowspan="2">TAHSİLAT MAKBUZU</td>
-                <td
-                    style="width: 18.4205%; height: 18px; text-align: center; border-collapse: collapse; border-style: inset;">
+                <td style="width: 52.3137%; height: 18px;font-size: 30px; text-align: center; border-collapse: collapse; border-style: inset;" colspan="3" rowspan="2">TAHSİLAT MAKBUZU</td>
+                <td style="width: 18.4205%; height: 18px; text-align: center; border-collapse: collapse; border-style: inset;">
                     MAKBUZ NO<br />
                     <span><?php echo $makbuzcek['makbuz_id']; ?></span>
                 </td>
@@ -342,38 +332,32 @@ function sayiyiYaziyaCevir($sayi, $kurusbasamak = 2, $parabirimi, $parakurus, $d
             </tr>
             <tr style="height: 18px; text-align: center;">
 
-                <td style="width: 18.4205%; height: 18px; text-align: center; border-collapse: collapse; border-style: inset;"
-                    TARİH<br />
+                <td style="width: 18.4205%; height: 18px; text-align: center; border-collapse: collapse; border-style: inset;" TARİH<br />
                 <span><?php echo $makbuzcek['makbuz_tarih']; ?></span>
                 </td>
             </tr>
             <tr style="height: 18px; text-align: center;">
-                <td style="width: 62.6228%; height: 18px; text-align: left; border-collapse: collapse; border-style: inset;"
-                    colspan="6">ÖDEME YAPAN: <span>
+                <td style="width: 62.6228%; height: 18px; text-align: left; border-collapse: collapse; border-style: inset;" colspan="6">ÖDEME YAPAN: <span>
                         <?php echo $makbuzcek['makbuz_adsoyad']; ?></span>
                 </td>
 
             </tr>
             <tr>
-                <td style="width: 62.6228%; text-align: left; border-collapse: collapse; border-style: inset;"
-                    colspan="6">TUTAR: <span>
-                        <?php echo $makbuzcek['makbuz_tutar'] . $makbuzcek['makbuz_kur'] . '  (' . sayiyiYaziyaCevir($makbuzcek['makbuz_tutar'], 0, $makbuzcek['makbuz_kur'], null, "", null, null, null) . ')'; ?>
+                <td style="width: 62.6228%; text-align: left; border-collapse: collapse; border-style: inset;" colspan="6">TUTAR: <span>
+                        <?php echo $makbuzcek['makbuz_tutar'] . $makbuzcek['makbuz_kur'] . '  (' . sayiyiYaziyaCevir($makbuzcek['makbuz_tutar'], $makbuzcek['makbuz_kur'], null, "", null, null, null, 0) . ')'; ?>
                     </span>
                 </td>
 
             </tr>
             <tr style="height: 18px; text-align: center;">
-                <td style="height: 18px; text-align: left; border-collapse: collapse; border-style: inset; width: 62.6228%;"
-                    colspan="4">ÖDEME ŞEKLİ: <span><?php echo $makbuzcek['makbuz_odeme_sekli']; ?></span>
+                <td style="height: 18px; text-align: left; border-collapse: collapse; border-style: inset; width: 62.6228%;" colspan="4">ÖDEME ŞEKLİ: <span><?php echo $makbuzcek['makbuz_odeme_sekli']; ?></span>
                 </td>
-                <td style="border-collapse: collapse;   vertical-align: top; border-style: inset; height: 104.333px; width: 36.0981%;"
-                    colspan="2" rowspan="2">TAHSİLAT YAPAN <br>
+                <td style="border-collapse: collapse;   vertical-align: top; border-style: inset; height: 104.333px; width: 36.0981%;" colspan="2" rowspan="2">TAHSİLAT YAPAN <br>
                     <span><?php echo $makbuzcek['kullanici_adsoyad']; ?></span>
                 </td>
             </tr>
             <tr style="height: 18px; text-align: center;">
-                <td style="height: 68.3333px; vertical-align: top; text-align: left; border-collapse: collapse; border-style: inset; width: 62.6228%;"
-                    colspan="4">AÇIKLAMA: <span>
+                <td style="height: 68.3333px; vertical-align: top; text-align: left; border-collapse: collapse; border-style: inset; width: 62.6228%;" colspan="4">AÇIKLAMA: <span>
                         <?php echo $makbuzcek['makbuz_aciklama']; ?></span>
                 </td>
             </tr>
