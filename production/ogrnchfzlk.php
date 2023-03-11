@@ -424,14 +424,14 @@ setlocale(LC_TIME, "turkish");
                                                     $tekrar =   array_count_values($gunler);
                                                     $say = $tekrar[$ganc];
                                                     $ders =  '<a href="#" data-toggle="modal" data-target="#' . $dersid[array_search($ganc, $gunler)] . 'hocagoster">'
-                                                        . $sayfalar[array_search($ganc, $gunler)] . '/' .  $cuzler[array_search($ganc, $gunler)] . '</a>';
+                                                        . /* $sayfalar[array_search($ganc, $gunler)] . '/' . */  $cuzler[array_search($ganc, $gunler)] . '</a>';
 
 
                                                     for ($i = 1; $i < $say; $i++) {
                                                         array_push($derslerim, array_search($ganc, $gunler) + $i);
                                                         $ders .= ' - '
                                                             . '<a href="#" data-toggle="modal" data-target="#' . $dersid[array_search($ganc, $gunler) + $i] . 'hocagoster">'
-                                                            . $sayfalar[array_search($ganc, $gunler) + $i] . '/' .  $cuzler[array_search($ganc, $gunler) + $i] . '</a>';
+                                                            /* . $sayfalar[array_search($ganc, $gunler) + $i] . '/' */ .  $cuzler[array_search($ganc, $gunler) + $i] . '</a>';
                                                     }
                                                 } else {
                                                     $ders = '';

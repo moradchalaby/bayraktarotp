@@ -7,8 +7,7 @@ $dersler = explode("&", $day[0]);
 
 
 ?>
-<div class="modal fade" id="<?php echo $hafizlikdersmodal['hafizlik_id']; ?>hocagoster" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="<?php echo $hafizlikdersmodal['hafizlik_id']; ?>hocagoster" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -41,16 +40,16 @@ $dersler = explode("&", $day[0]);
             <div class="modal-footer">
                 <?php if ($yetkiler >= 4) : ?>
 
-                <form action="../netting/islem.php" method="POST">
-                    <?php
+                    <form action="../netting/islem.php" method="POST">
+                        <?php
                         $url = $_SERVER['REQUEST_URI']; ?>
 
 
-                    <input type="hidden" name=url value="<?php echo $url; ?>">
-                    <input type="hidden" name="hafizlik_id" value="<?php echo $hafizlikdersmodal['hafizlik_id'] ?> ">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
-                    <button type="submit" name="hfzlksil" class="btn bg-red">Sil</button>
-                </form>
+                        <input type="hidden" name=url value="<?php echo $url; ?>">
+                        <input type="hidden" name="hafizlik_id" value="<?php echo $hafizlikdersmodal['hafizlik_id'] ?> ">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+                        <button type="submit" name="hfzlksil" class="btn bg-red">Sil</button>
+                    </form>
 
                 <?php endif ?>
 
